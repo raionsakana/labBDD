@@ -1,10 +1,9 @@
 package edu.iis.mto.bdd.trains.model;
 
-import com.google.common.collect.ImmutableList;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.google.common.collect.ImmutableList;
 
 public class Line {
 
@@ -45,6 +44,7 @@ public class Line {
     }
 
     public static final class LineBuilder {
+
         private final String lineName;
 
         public LineBuilder(String lineName) {
@@ -58,14 +58,21 @@ public class Line {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         Line line1 = (Line) o;
 
-        if (departingFrom != null ? !departingFrom.equals(line1.departingFrom) : line1.departingFrom != null)
+        if (departingFrom != null ? !departingFrom.equals(line1.departingFrom) : line1.departingFrom != null) {
             return false;
-        if (line != null ? !line.equals(line1.line) : line1.line != null) return false;
+        }
+        if (line != null ? !line.equals(line1.line) : line1.line != null) {
+            return false;
+        }
 
         return true;
     }
@@ -79,9 +86,6 @@ public class Line {
 
     @Override
     public String toString() {
-        return "Line{" +
-                "line='" + line + '\'' +
-                ", departingFrom='" + departingFrom + '\'' +
-                '}';
+        return "Line{" + "line='" + line + '\'' + ", departingFrom='" + departingFrom + '\'' + '}';
     }
 }

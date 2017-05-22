@@ -7,12 +7,13 @@ import org.joda.time.format.DateTimeFormatter;
 import cucumber.api.Transformer;
 
 public class JodaLocalTimeConverter extends Transformer<LocalTime> {
-	DateTimeFormatter FORMATTER = DateTimeFormat.forPattern("hh:mm");
 
-	@Override
-	public LocalTime transform(String timeString) {
+    DateTimeFormatter FORMATTER = DateTimeFormat.forPattern("hh:mm");
 
-		return FORMATTER.parseLocalTime(timeString);
-	}
+    @Override
+    public LocalTime transform(String timeString) {
+
+        return FORMATTER.parseLocalTime(timeString);
+    }
 
 }

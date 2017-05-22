@@ -11,7 +11,8 @@ import org.junit.Test;
 import edu.iis.mto.bdd.trains.model.Line;
 
 public class LineIsImmutableTest {
-    private String[] inputStations = new String[]{"station 1", "station 2", "station 3"};
+
+    private String[] inputStations = new String[] {"station 1", "station 2", "station 3"};
     private String[] inputStationsCopy = Arrays.copyOf(inputStations, inputStations.length);
     private Line sampleLine;
 
@@ -24,7 +25,7 @@ public class LineIsImmutableTest {
     public void stationsCanNotBeModifiedAfterLineCreation() throws Exception {
         inputStations[0] = "station 99";
 
-        assertThat(sampleLine.getStations(),is(Arrays.asList(inputStationsCopy)));
+        assertThat(sampleLine.getStations(), is(Arrays.asList(inputStationsCopy)));
     }
 
     @Test(expected = UnsupportedOperationException.class)
