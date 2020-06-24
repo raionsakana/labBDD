@@ -19,7 +19,7 @@ public class OptimalItinerarySteps {
 
     private ItineraryService itineraryService;
     private List<LocalTime> arrivalTimes;
-    private int restTime = 15;
+    private int restTime = 30;
 
     @Zakładając("^pociągi linii \"(.*)\" z \"(.*)\" odjeżdżają ze stacji \"(.*)\" do \"(.*)\" o$")
     public void givenArrivingTrains(String line, String lineStart, String departure, String destination,
