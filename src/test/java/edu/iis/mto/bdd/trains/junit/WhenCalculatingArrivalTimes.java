@@ -69,4 +69,17 @@ public class WhenCalculatingArrivalTimes {
         assertThat(result, hasSize(1));
     }
 
+    @Test
+    public void findNextDeparturesTwoFound() {
+        when(timetableService.findArrivalTimes(line, departure)).thenReturn(
+            Arrays.asList(
+                new LocalTime(19, 35),
+                new LocalTime(19, 37)
+            )
+        );
+
+        List<LocalTime> result = itineraryService.findNextDepartures(this.departure, this.destination, this.localTime);
+        assertThat(result, hasSize(2));
+    }
+
 }
