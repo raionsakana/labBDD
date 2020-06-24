@@ -2,13 +2,11 @@ package edu.iis.mto.bdd.trains.cucumber.steps;
 
 import java.util.List;
 
-import edu.iis.mto.bdd.trains.model.Line;
 import edu.iis.mto.bdd.trains.services.InMemoryTimetableService;
 import edu.iis.mto.bdd.trains.services.ItineraryService;
-import edu.iis.mto.bdd.trains.services.TimetableService;
+import edu.iis.mto.bdd.trains.services.ItineraryServiceBaseImpl;
 import org.joda.time.LocalTime;
 
-import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.pl.Gdy;
 import cucumber.api.java.pl.Wtedy;
@@ -21,11 +19,12 @@ public class OptimalItinerarySteps {
 
     private ItineraryService itineraryService;
     private List<LocalTime> arrivalTimes;
+    private int restTime = 15;
 
     @Zakładając("^pociągi linii \"(.*)\" z \"(.*)\" odjeżdżają ze stacji \"(.*)\" do \"(.*)\" o$")
     public void givenArrivingTrains(String line, String lineStart, String departure, String destination,
             @Transform(JodaLocalTimeConverter.class) List<LocalTime> departureTimes) {
-        throw new PendingException();
+        this.itineraryService = new ItineraryServiceBaseImpl(new InMemoryTimetableService(), this.restTime);
     }
 
     @Gdy("^chcę podróżować z \"([^\"]*)\" do \"([^\"]*)\" o (.*)$")
@@ -38,4 +37,5 @@ public class OptimalItinerarySteps {
     public void shouldBeInformedAbout(@Transform(JodaLocalTimeConverter.class) List<LocalTime> expectedTrainTimes) {
         assertThat(this.arrivalTimes, is(expectedTrainTimes));
     }
+
 }
