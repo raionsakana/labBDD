@@ -11,7 +11,7 @@ public class ItineraryServiceBaseImpl implements ItineraryService {
     private TimetableService timetableService;
     private int restTime;
 
-    public ItineraryServiceBaseImpl(TimetableService timetableService, int restTime) {
+    ItineraryServiceBaseImpl(TimetableService timetableService, int restTime) {
         this.timetableService = timetableService;
         this.restTime = restTime;
     }
